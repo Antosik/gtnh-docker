@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  mc:
+    extends:
+      file: ./docker-compose.common.yml
+      service: mc
+    environment:
+      MEMORY: "12G"
+      USE_AIKAR_FLAGS: true
+    volumes:
+      # Timezone & Localtime sync
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+  mc-backup:
+    extends:
+      file: ./docker-compose.common.yml
+      service: mc-backup

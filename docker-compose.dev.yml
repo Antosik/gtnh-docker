@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  mc:
+    extends:
+      file: ./docker-compose.common.yml
+      service: mc
+    environment:
+      MEMORY: "6G"
+      ENABLE_WHITELIST: false
+
+  mc-backup:
+    extends:
+      file: ./docker-compose.common.yml
+      service: mc-backup
